@@ -28,4 +28,5 @@ echo Dados sobre a RAM:
 echo -e "\e[1;34m$primeira_linha_ram\e[0m"
 echo -e "$segunda_linha_ram"
 
+#
 #snap da temperatura.
