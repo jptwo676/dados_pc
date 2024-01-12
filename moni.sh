@@ -14,13 +14,18 @@
 
 echo Dados sobre o uso de HD:
 primeira_linha_hd=$( df -h /dev/mapper/data-root | head -n 1 )
-echo -e "\e[1;34m$primeira_linha_hd\e[0m"
 segunda_linha_hd=$( df -h /dev/mapper/data-root | tail -n 1 )
+echo -e "\e[1;34m$primeira_linha_hd\e[0m"
 echo -e "$segunda_linha_hd"
 
+echo
+echo
 
 #ram
+primeira_linha_ram=$( free -h | head -n 1 )
+segunda_linha_ram=$( free -h | tail -n 2 )
 echo Dados sobre a RAM:
-ram_h=$( free -h )
-echo "$ram_h"
-#snap da temperature.
+echo -e "\e[1;34m$primeira_linha_ram\e[0m"
+echo -e "$segunda_linha_ram"
+
+#snap da temperatura.
