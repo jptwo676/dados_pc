@@ -12,11 +12,15 @@
 
 #hd space
 
-hd_raw=$(df -h /dev/mapper/data-root) 
-
-echo $hd_raw
+echo Dados sobre o uso de HD:
+primeira_linha_hd=$( df -h /dev/mapper/data-root | head -n 1 )
+echo -e "\e[1;34m$primeira_linha_hd\e[0m"
+segunda_linha_hd=$( df -h /dev/mapper/data-root | tail -n 1 )
+echo -e "$segunda_linha_hd"
 
 
 #ram
-
+echo Dados sobre a RAM:
+ram_h=$( free -h )
+echo "$ram_h"
 #snap da temperature.
