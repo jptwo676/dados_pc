@@ -10,6 +10,14 @@
 #Use: Give basic info about temperature.
 #--------------------------------------------------------------
 
+#dados do boot
+tempo_ex=$( uptime -p )
+echo -e "\e[1;34mTempo de atividade: \e[0m"
+echo $tempo_ex
+
+echo
+
+
 #hd space
 
 echo Dados sobre o uso de HD:
@@ -28,5 +36,5 @@ echo Dados sobre a RAM:
 echo -e "\e[1;34m$primeira_linha_ram\e[0m"
 echo -e "$segunda_linha_ram"
 
-#
+
 #snap da temperatura.
