@@ -10,11 +10,12 @@
 #Use: Give basic info about the computer.
 #--------------------------------------------------------------
 
+#var
+nome_model_cpu="Nome do modelo:"
 
-NOME_MODEL_CPU="Nome do modelo:"
 
-#detectar a linguagem do sys (util pra procura de dados)
-system_lang=$( locale )
+#detectar a lingua do sistema
+system_lang=$( locale | grep 'LANG=' | awk -F '=' '{print $2}' )
 
 #dados tempo do boot
 tempo_ex=$( uptime -p )
@@ -25,7 +26,7 @@ echo
 
 #cpu name
 echo -e "\e[1;34m Info da CPU: \e[0m"
-nome_cpu_full=$( lscpu | grep "$NOME_MODEL_CPU" | awk -F ':' '{print $2}' ) #TODO arrumar esse awk
+nome_cpu_full=$( lscpu | grep "$nome_model_cpu" | awk -F ':' '{print $2}' )
 echo $nome_cpu_full
 
 echo
