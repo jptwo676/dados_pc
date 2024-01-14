@@ -10,12 +10,20 @@
 #Use: Give basic info about the computer.
 #--------------------------------------------------------------
 
-#var
-nome_model_cpu="Nome do modelo:"
 
 
-#detectar a lingua do sistema
 system_lang=$( locale | grep 'LANG=' | awk -F '=' '{print $2}' )
+
+if [ system_lang=pt_BR.UTF-8 ]; then
+    nome_model_cpu="Nome do modelo:"
+    echo -e "\e[1;34m Info da CPU: \e[0m"
+    nome_cpu_full=$( lscpu | grep "$nome_model_cpu" | awk -F ':' '{print $2}' )
+    echo $nome_cpu_full
+else
+    echo "You computer language is not supported."
+fi
+
+echo
 
 #dados tempo do boot
 tempo_ex=$( uptime -p )
@@ -25,8 +33,7 @@ echo $tempo_ex
 echo
 
 #cpu name
-echo -e "\e[1;34m Info da CPU: \e[0m"
-nome_cpu_full=$( lscpu | grep "$nome_model_cpu" | awk -F ':' '{print $2}' )
+
 echo $nome_cpu_full
 
 echo
