@@ -20,7 +20,7 @@ if [ system_lang=pt_BR.UTF-8 ]; then
     nome_cpu_full=$( lscpu | grep "$nome_model_cpu" | awk -F ':' '{print $2}' )
     echo $nome_cpu_full
 else
-    echo "You computer language is not supported."
+    echo "Your computer language is not supported."
 fi
 
 echo
